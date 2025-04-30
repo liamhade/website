@@ -1,9 +1,9 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
-      Hello there! We're still under construction, but come back soon and we might be ready.
+      Hello there! We&apos;re still under construction, but come back soon and we might be ready.
     </div>
   );
 }
