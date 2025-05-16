@@ -1,0 +1,25 @@
+.poem {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 8vh;
+}
+
+.poem-header {
+	padding-bottom: 10px;
+	
+	.poem-title {
+		text-align: center;
+		font-size: 25px;
+	}
+
+	.poem-author {
+		text-align: center;
+		font-size: 20px;
+		font-style: italic;
+	}
+}
+
+.lines pre {
+	text-align: center;
+	font-size: 18px;
+}
