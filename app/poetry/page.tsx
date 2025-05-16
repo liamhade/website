@@ -3,7 +3,7 @@ import "./page.scss";
 import AppBar from "../components/AppBar";
 import poems from "../data/poems.json";
 
-export default function PoetryPage(props: any) {
+export default function PoetryPage() {
 	return (
 		<div>
 			<AppBar />
@@ -12,7 +12,7 @@ export default function PoetryPage(props: any) {
 	)
 }
 
-function Poems(props: any) {
+function Poems() {
 	return (
 		<div>
 			{poems.map((poem, idx) => (
