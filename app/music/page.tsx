@@ -14,7 +14,7 @@ export default function MusicPage() {
 function Page() {
 	return (
 		<div>
-			Currently working on "Wild Mountain Thyme" on guitar, as seen in the movie Sinners.
+			Currently working on Wild Mountain Thyme on guitar, as seen in the movie Sinners.
 		</div>
 	)
 }
