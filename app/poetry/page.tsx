@@ -2,12 +2,13 @@
 import "./page.scss";
 import AppBar from "../components/AppBar";
 import poems from "../data/poems.json";
+import PageBody from "../components/PageBody";
 
 export default function PoetryPage() {
 	return (
 		<div>
 			<AppBar />
-			<Poems />
+			<PageBody child={<Poems />} />
 		</div>
 	)
 }

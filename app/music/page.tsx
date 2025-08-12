@@ -1,12 +1,13 @@
 "use client";
 import "./page.scss";
 import AppBar from "../components/AppBar";
+import PageBody from "../components/PageBody";
 
 export default function MusicPage() {
 	return (
 		<div>
 			<AppBar />
-			<Page />
+			<PageBody child={<Page />} />
 		</div>
 	)
 }

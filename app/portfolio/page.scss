@@ -1,0 +1,15 @@
+$link-color: #c9c9ff;
+
+.jarvis-project {
+	display: flex;
+	flex-direction: row;
+
+	.title {
+		color: $link-color;
+		border-bottom: 1px solid $link-color;
+	}
+
+	.spacer {
+		margin: 0px 10px 0px 10px;
+	}
+}

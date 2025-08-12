@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Liam Hade's Luxurious Haven",
+  title: "My Site",
   description: "An app, on the internet.",
 };
 

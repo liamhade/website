@@ -6,8 +6,9 @@ export default function AppBar() {
 	return (
 		<nav className="appBar">
 			<Link className="appBar-link" href="/">Home</Link>
-			<Link className="appBar-link" href="/poetry">Poetry</Link>
+			<Link className="appBar-link" href="/portfolio">Portfolio</Link>
 			<Link className="appBar-link" href="/music">Music</Link>
+			<Link className="appBar-link" href="/poetry">Poetry</Link>
 		</nav>			
 	)
 }

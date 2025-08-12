@@ -1,4 +1,9 @@
-.appBar-link {
-	padding: 14px 16px;
-	font-size: 25px;
+.appBar {
+	border-bottom: 2px solid rgb(155, 144, 255);
+	margin: 10px 20px 10px 20px;
+
+	.appBar-link {
+		padding: 14px 16px;
+		font-size: 25px;
+	}
 }
