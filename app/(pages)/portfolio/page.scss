@@ -3,12 +3,17 @@ $link-color: var(--link-color);
 .project {
 	display: flex;
 	flex-direction: row;
+	// Without this the title stretches to the row's height, so its underline
+	// drops to the bottom when the description wraps onto more lines.
+	align-items: baseline;
 
 	& + .project {
 		margin-top: 12px;
 	}
 
 	.title {
+		flex-shrink: 0;
+		white-space: nowrap;
 		color: $link-color;
 		border-bottom: 1px solid $link-color;
 	}
