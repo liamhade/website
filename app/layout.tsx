@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Site",
-  description: "An app, on the internet.",
+  title: "Liam's Site",
+  description: "Liam Hade's public website.",
 };
 
 export default function RootLayout({

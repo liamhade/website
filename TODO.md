@@ -2,5 +2,6 @@
 
 ## General
 
-- [x] Dark / Light mode switch
+- [ ] Add resume
 
+- [ ] Add contact section
