@@ -7,6 +7,8 @@
   --link-color: #5a4fcf;
   --show-in-light: inline;
   --show-in-dark: none;
+  --hero-sky: #7fc4ef url("/hero/sunny.avif");
+  --hero-text-shadow: rgba(255, 255, 255, 0.9);
 }
 
 @theme inline {
@@ -23,6 +25,8 @@
     --link-color: #c9c9ff;
     --show-in-light: none;
     --show-in-dark: inline;
+    --hero-sky: #0b1324 url("/hero/stars.avif");
+    --hero-text-shadow: rgba(0, 0, 0, 0.85);
   }
 }
 
@@ -32,6 +36,8 @@
   --link-color: #c9c9ff;
   --show-in-light: none;
   --show-in-dark: inline;
+  --hero-sky: #0b1324 url("/hero/stars.avif");
+  --hero-text-shadow: rgba(0, 0, 0, 0.85);
 }
 
 body {

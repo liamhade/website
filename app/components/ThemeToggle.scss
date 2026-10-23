@@ -5,11 +5,12 @@
 	cursor: pointer;
 	color: var(--foreground);
 
-	.theme-toggle-moon {
+	// Shows the current theme: sun in light mode, moon in dark mode.
+	.theme-toggle-sun {
 		display: var(--show-in-light);
 	}
 
-	.theme-toggle-sun {
+	.theme-toggle-moon {
 		display: var(--show-in-dark);
 	}
 }

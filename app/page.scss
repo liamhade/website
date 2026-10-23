@@ -1,0 +1,240 @@
+.hero {
+	position: relative;
+	height: 100vh;
+	height: 100dvh;
+	min-height: 560px;
+	overflow: hidden;
+	// Sunny sky in light mode, stars in dark mode (--hero-sky is set in globals.css).
+	background: var(--hero-sky) center / cover no-repeat;
+	color: var(--foreground);
+
+	.hero-theme-toggle {
+		position: absolute;
+		top: 12px;
+		right: 16px;
+		z-index: 3;
+	}
+
+	// Clouds with the social icons sitting on top.
+	.hero-clouds {
+		position: absolute;
+		top: 9%;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		padding-left: 12vw;
+		z-index: 1;
+
+		@media (max-width: 600px) {
+			top: 20%;
+			padding-left: 0;
+		}
+
+		// Short, wide screens: keep the clouds clear of the hill labels.
+		@media (min-aspect-ratio: 2/1) {
+			.hero-cloud {
+				width: clamp(150px, 36vh, 440px);
+			}
+		}
+	}
+
+	.hero-cloud {
+		position: relative;
+		width: clamp(150px, 30vw, 440px);
+		animation: hero-float 7s ease-in-out infinite;
+
+		// Overlap the two clouds a little, like a single bank of cloud.
+		& + .hero-cloud {
+			margin-left: -6vw;
+			margin-top: 2vw;
+			animation-duration: 8.5s;
+			animation-delay: -3s;
+		}
+
+		.hero-cloud-img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.hero-social {
+		position: absolute;
+		top: 4%;
+		left: 45%;
+		width: clamp(32px, 3.5vw, 52px);
+		transform: translate(-50%, -80%);
+		transition: transform 0.2s;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		&:hover,
+		&:focus-visible {
+			transform: translate(-50%, -80%) scale(1.12);
+		}
+	}
+
+	// The landscape plus the hills behind it. The box keeps the landscape's aspect
+	// ratio, so hill positions given in % of it line up with the skyline at any
+	// screen size. It's sized like object-fit: cover (at least 40% of the hero
+	// tall, at least full width) and the hero clips whatever hangs off the bottom.
+	.hero-ground {
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		width: max(100%, 101dvh, 565px);
+		aspect-ratio: 2000 / 793;
+		transform: translateX(-50%);
+		z-index: 2;
+
+		@media (max-aspect-ratio: 4/5) {
+			top: 66%;
+			width: max(100%, 86dvh, 480px);
+		}
+	}
+
+	.hero-landscape {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	.hero-hills {
+		position: absolute;
+		inset: 0;
+	}
+
+	// The hill image is cut off flat at 60% of its height, so its base is only
+	// the middle ~64% of its width. Each "bottom" puts that base a few percent
+	// below the lowest point of the skyline across it (measured from
+	// landscape.webp), so no part of the base shows.
+	.hero-hill {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: inherit;
+		text-decoration: none;
+
+		&:nth-child(1) {
+			left: 4%;
+			width: 36%;
+			bottom: 86%;
+			--hill-aspect: 2.15;
+		}
+
+		&:nth-child(2) {
+			left: 35%;
+			width: 30%;
+			bottom: 80.5%;
+			--hill-aspect: 2.15;
+		}
+
+		&:nth-child(3) {
+			left: 62%;
+			width: 34%;
+			bottom: 93.5%;
+			// A little shorter so its label stays clear of the GitHub cloud.
+			--hill-aspect: 2.5;
+		}
+
+		// The sides of the ground are cropped on tall screens, so the hills move
+		// inwards and get narrower and steeper.
+		@media (max-aspect-ratio: 4/5) {
+			&:nth-child(1) {
+				left: 22%;
+				width: 20%;
+				bottom: 83.5%;
+				--hill-aspect: 1.5;
+			}
+
+			&:nth-child(2) {
+				left: 41%;
+				width: 18%;
+				bottom: 80.5%;
+				--hill-aspect: 1.5;
+			}
+
+			&:nth-child(3) {
+				left: 58%;
+				width: 20%;
+				bottom: 89%;
+				--hill-aspect: 1.5;
+			}
+		}
+
+		.hero-hill-label {
+			margin-bottom: 6px;
+			font-size: clamp(18px, 2.2vw, 30px);
+			font-weight: 500;
+			white-space: nowrap;
+			text-shadow: 0 1px 6px var(--hero-text-shadow);
+			// The float animates transform; the hover lift below uses translate, so they combine.
+			animation: hero-label-float 4.5s ease-in-out infinite;
+			transition: translate 0.25s;
+		}
+
+		// Offset each label's float so they don't bob in sync.
+		&:nth-child(2) .hero-hill-label {
+			animation-duration: 5.2s;
+			animation-delay: -1.5s;
+		}
+
+		&:nth-child(3) .hero-hill-label {
+			animation-duration: 4.8s;
+			animation-delay: -3s;
+		}
+
+		// Stretched well past the source image's 900 / 177 so the peaks stand tall
+		// above the skyline while the flat base stays hidden behind it.
+		.hero-hill-img {
+			display: block;
+			width: 100%;
+			height: auto;
+			aspect-ratio: var(--hill-aspect);
+		}
+
+		// Only the label lifts, so the hill's base never rises out from behind the landscape.
+		&:hover,
+		&:focus-visible {
+			.hero-hill-label {
+				translate: 0 -6px;
+				text-decoration: underline;
+				text-underline-offset: 5px;
+			}
+		}
+	}
+}
+
+@keyframes hero-float {
+	0%, 100% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(6px, -10px);
+	}
+}
+
+@keyframes hero-label-float {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero .hero-cloud,
+	.hero .hero-hill-label {
+		animation: none;
+	}
+}
