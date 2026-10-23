@@ -1,0 +1,15 @@
+.theme-toggle {
+	float: right;
+	padding: 4px 12px;
+	font-size: 25px;
+	cursor: pointer;
+	color: var(--foreground);
+
+	.theme-toggle-moon {
+		display: var(--show-in-light);
+	}
+
+	.theme-toggle-sun {
+		display: var(--show-in-dark);
+	}
+}

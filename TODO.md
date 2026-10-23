@@ -1,9 +1,6 @@
-## Personal Website Todo List
+# Todo
 
-### Poem page
-- [ ] Only one poem at a time
-- [ ] Add list of poems to the side
+## General
 
-### General
-- [ ] Dark / Light mode switch
-- [ ] Add thin line between header and rest of page
+- [x] Dark / Light mode switch
+
