@@ -1,3 +1,69 @@
+// Leaves room above for the sky and the theme toggle, and at least a sliver of
+// scene down each side; on wide screens the panel stops growing and more shows.
 .page-body {
-	margin: 15px 25px 15px 25px;
+	position: absolute;
+	inset: 64px 0 max(16px, 4vh);
+	z-index: 3;
+	width: min(1100px, calc(100% - 2 * max(16px, 6vw)));
+	margin-inline: auto;
+	overflow-y: auto;
+	border: 1px solid var(--glass-border);
+	border-radius: 24px;
+	background: var(--glass-bg);
+	// The inset line catches the light along the top edge, like a pane of glass.
+	box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-highlight);
+	backdrop-filter: blur(24px) saturate(160%);
+	-webkit-backdrop-filter: blur(24px) saturate(160%);
+	color: var(--foreground);
+	// Settles in once the clouds and land have mostly parted.
+	animation: page-body-in 0.6s 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+	@media (max-width: 600px) {
+		top: 56px;
+		border-radius: 18px;
+	}
+
+	.page-body-content {
+		padding: 20px clamp(16px, 4vw, 40px) 32px;
+	}
+
+	// Set by the Home link: the entrance played backwards before navigating. Its
+	// own keyframes (rather than animation-direction: reverse) so the browser
+	// restarts the animation, and the easing is the entrance curve mirrored.
+	&.page-body--leaving {
+		animation: page-body-out 0.6s cubic-bezier(0.8, 0, 0.8, 0.3) forwards;
+		pointer-events: none;
+	}
+}
+
+@keyframes page-body-out {
+	from {
+		opacity: 1;
+		translate: 0 0;
+		scale: 1;
+	}
+	to {
+		opacity: 0;
+		translate: 0 16px;
+		scale: 0.98;
+	}
+}
+
+@keyframes page-body-in {
+	from {
+		opacity: 0;
+		translate: 0 16px;
+		scale: 0.98;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+		scale: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-body {
+		animation: none;
+	}
 }

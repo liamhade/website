@@ -8,11 +8,14 @@
 	background: var(--hero-sky) center / cover no-repeat;
 	color: var(--foreground);
 
+	// Shared by the clouds and the ground so they part in step.
+	--scene-push: 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+
 	.hero-theme-toggle {
 		position: absolute;
 		top: 12px;
 		right: 16px;
-		z-index: 3;
+		z-index: 4;
 	}
 
 	// Clouds with the social icons sitting on top.
@@ -25,6 +28,7 @@
 		justify-content: center;
 		padding-left: 12vw;
 		z-index: 1;
+		transition: translate var(--scene-push);
 
 		@media (max-width: 600px) {
 			top: 20%;
@@ -91,6 +95,7 @@
 		aspect-ratio: 2000 / 793;
 		transform: translateX(-50%);
 		z-index: 2;
+		transition: translate var(--scene-push);
 
 		@media (max-aspect-ratio: 4/5) {
 			top: 66%;
@@ -214,6 +219,22 @@
 	}
 }
 
+// On any page other than home the clouds drift off to the right and the land
+// sinks below the screen, so only the sky shows around the page's glass panel.
+// `translate` stacks on top of the existing transforms and the float animation.
+.hero.hero--page {
+	// The clouds start at least partway across, so a full screen width clears them.
+	.hero-clouds {
+		translate: 100vw 0;
+	}
+
+	// The hill labels never reach the top of the hero, so dropping the ground by
+	// the hero's full height (100dvh, or its 560px minimum) clears it.
+	.hero-ground {
+		translate: 0 max(100dvh, 560px);
+	}
+}
+
 @keyframes hero-float {
 	0%, 100% {
 		transform: translate(0, 0);
@@ -236,5 +257,10 @@
 	.hero .hero-cloud,
 	.hero .hero-hill-label {
 		animation: none;
+	}
+
+	.hero .hero-clouds,
+	.hero .hero-ground {
+		transition: none;
 	}
 }

@@ -1,15 +1,10 @@
 "use client";
 import "./page.scss";
-import AppBar from "../components/AppBar";
-import poems from "../data/poems.json";
-import PageBody from "../components/PageBody";
+import poems from "../../data/poems.json";
 
 export default function PoetryPage() {
 	return (
-		<div>
-			<AppBar />
-			<PageBody child={<Poems />} />
-		</div>
+		<Poems />
 	)
 }
 

@@ -25,4 +25,6 @@
 	text-align: center;
 	font-size: 18px;
 	font-family: Georgia, 'Times New Roman', Times, serif;
+	// Long lines wrap inside the glass panel on narrow screens.
+	white-space: pre-wrap;
 }

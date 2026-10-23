@@ -1,14 +1,9 @@
 "use client";
 import "./page.scss";
-import AppBar from "../components/AppBar";
-import PageBody from "../components/PageBody";
 
 export default function PortfolioPage() {
 	return (
-		<div>
-			<AppBar />
-			<PageBody child={<Page />} />
-		</div>
+		<Page />
 	)
 }
 

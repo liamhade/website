@@ -9,6 +9,11 @@
   --show-in-dark: none;
   --hero-sky: #7fc4ef url("/hero/sunny.avif");
   --hero-text-shadow: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.28);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-highlight: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 12px 40px rgba(20, 60, 110, 0.25);
+  --glass-divider: rgba(23, 23, 23, 0.12);
 }
 
 @theme inline {
@@ -27,6 +32,11 @@
     --show-in-dark: inline;
     --hero-sky: #0b1324 url("/hero/stars.avif");
     --hero-text-shadow: rgba(0, 0, 0, 0.85);
+    --glass-bg: rgba(20, 28, 48, 0.35);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-highlight: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --glass-divider: rgba(237, 237, 237, 0.14);
   }
 }
 
@@ -38,6 +48,11 @@
   --show-in-dark: inline;
   --hero-sky: #0b1324 url("/hero/stars.avif");
   --hero-text-shadow: rgba(0, 0, 0, 0.85);
+  --glass-bg: rgba(20, 28, 48, 0.35);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-highlight: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --glass-divider: rgba(237, 237, 237, 0.14);
 }
 
 body {
